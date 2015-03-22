@@ -6,16 +6,16 @@ var express = require('express'),
 // Application initialization
 
 var connection = mysql.createConnection({
-    host: 'cwolf.cs.sonoma.edu',
-        user: 'blevinsky',
-        password: '3826698'
+    host: '...',
+        user: '...',
+        password: '...'
 });
 
 var app = module.exports = express.createServer();
 
 // Database setup
 
-connection.query('USE blevinsky', function (err) {
+connection.query('USE ...', function (err) {
     if (err) throw err;
 });
 
@@ -1554,5 +1554,5 @@ app.get('/Climber_Route/delete', function (req, res) {
 
 // Begin listening
 
-app.listen(8024);
+app.listen(...);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
