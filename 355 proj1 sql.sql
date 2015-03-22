@@ -1,4 +1,4 @@
-use blevinsky;
+use ...;
 
 drop table if exists Climber_Route;
 drop table if exists Climber_Sponsor;
