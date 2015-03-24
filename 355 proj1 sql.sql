@@ -20,13 +20,15 @@ create table Route(routeID int primary key auto_increment, routeName varchar(50)
 	difficultyEuro varchar(10), firstAscent varchar(50) references Climber (climber_name) on delete cascade, typeOfClimb varchar(20),
 	numberPitches int null, routeSetter varchar(50) null);
     
-create table Climber_Sponsor(climberID int references Climber(climberID) on delete cascade, 
+create table Climber_Sponsor(relationID int primary key auto_increment,  
+	climberID int references Climber(climberID) on delete cascade, 
 	sponsorID int references Sponsor(sponsorID) on delete cascade,
-    primary key(climberID, sponsorID));
+    unique(climberID, sponsorID));
 
-create table Climber_Route( climberID int references Climber(climberID) on delete cascade, 
+create table Climber_Route(relationID int primary key auto_increment,
+	climberID int references Climber(climberID) on delete cascade, 
 	routeID int references Route(routeID) on delete cascade,
-    primary key(climberID, routeID));
+    unique(climberID, routeID));
 
 insert into Sponsor(sponsorName, gearOffered) 
 	values('La Sportiva', 'shoes'), ('prAna', 'apparel'), ('Five Ten', 'apparel, shoes');
