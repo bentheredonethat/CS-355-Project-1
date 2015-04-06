@@ -1302,7 +1302,7 @@ app.get('/Climber_Sponsor/view/table', function (req, res) {
 // Display information about a Climber_Sponsor when given their relationID
 app.get('/Climber_Sponsor/', function (req, res) {
 
-    var myQry = 'select distinct Climber.climberName, relationID from Climber join Climber_Sponsor on Climber.climberID=Climber_Sponsor.climberID'
+    var myQry = 'select  Climber.climberName, relationID from Climber join Climber_Sponsor on Climber.climberID=Climber_Sponsor.climberID'
     myQry += '  and sponsorID=' + req.query.sponsorID;
     
     console.log(myQry);
@@ -1436,7 +1436,7 @@ app.get('/Climber_Route/view/table', function (req, res) {
 // Displayall climbers that have done route
 app.get('/Climber_Route/', function (req, res) {
     
-    var myQry = 'select distinct Route.routeName, Route.routeID from Route join Climber_Route on Route.routeID=Climber_Route.routeID'
+    var myQry = 'select Route.routeName, Route.routeID from Route join Climber_Route on Route.routeID=Climber_Route.routeID'
     myQry += ' and Climber_Route.climberID=' + req.query.climberID;
     
     console.log(myQry);
